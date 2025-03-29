@@ -45,11 +45,15 @@ def checkout(skus):
     for sku in skus:
         if sku not in prices:
             return -1
-
-    for sku in skus:
         cart[sku] += 1
 
     total = 0
+
+    if "E" in cart:
+        number_of_e = cart["E"]
+        special_count = bogo["E"]
+
+        cart["B"] -= 1
 
     for item, count in cart.items():
         # check if we apply any discounts
@@ -84,3 +88,4 @@ def checkout(skus):
             total += regular_price * count
 
     return total
+

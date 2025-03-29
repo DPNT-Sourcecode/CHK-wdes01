@@ -44,4 +44,3 @@ class TestSum:
         assert checkout("EEB") == 80
         assert checkout("EEEBB") == 80 + 30
         assert checkout("EEEEBB") == 40 * 4
-

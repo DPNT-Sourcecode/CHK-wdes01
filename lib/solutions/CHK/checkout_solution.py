@@ -52,8 +52,8 @@ def checkout(skus):
     if "E" in cart:
         number_of_e = cart["E"]
         special_count = bogo["E"]
-
-        cart["B"] -= 1
+        number_of_times = number_of_e // special_count
+        cart["B"] = max(0, cart["B"] - number_of_times)
 
     for item, count in cart.items():
         # check if we apply any discounts
@@ -88,4 +88,5 @@ def checkout(skus):
             total += regular_price * count
 
     return total
+
 

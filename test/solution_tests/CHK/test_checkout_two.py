@@ -22,15 +22,12 @@ class TestSum:
         assert checkout("AAAAA") == 200
         assert checkout("AAA") == 130
         assert checkout("BB") == 45
-        assert checkout("EE") == 40
 
     def test_checkout_two_multiple_discount_items(self):
         # both promotions should be applied
         assert checkout("AAAAABAAA") == 200 + 130 + 30
 
     def test_checkout_two_an_item_with_mutliple_special_offers(self):
-        assert checkout("EEEE") == 40 * 2
-        assert checkout("BBBBBB") == 45 * 3
         assert checkout("BBBBBB") == 45 * 3
 
     def test_checkout_two_multiple_discount_items_with_remainder(self):
@@ -41,13 +38,10 @@ class TestSum:
 
         # one A and B promotion
         assert checkout("AAABBCDB") == (130) + (45) + 20 + 15 + 30
-        # one A and B and 1 E promotion
-        assert checkout("AAABBCDBEE") == (130) + (45) + 20 + 15 + 30 + 40
-        # one A and B and 1 E promotion, with B and E leftover
-        assert checkout("AAABBEECDBE") == (130) + (45) + (40) + 20 + 15 + 30 + 40
 
     def test_buy_one_get_b_free(self):
         assert checkout("EE") == 80
         assert checkout("EEB") == 80
         assert checkout("EEEBB") == 80 + 30
         assert checkout("EEEEBB") == 40 * 4
+

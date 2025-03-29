@@ -36,6 +36,7 @@ def checkout_one(skus):
 
 prices = {"A": 50, "B": 30, "C": 20, "D": 15, "E": 40}
 specials = {"A": [(5, 200), (3, 130)], "B": [(2, 45)], "E": [(2, 40)]}
+specials = {"E": [(1, "B")]}
 
 
 def checkout(skus):
@@ -79,6 +80,7 @@ def checkout(skus):
             total += regular_price * count
 
     return total
+
 
 
 

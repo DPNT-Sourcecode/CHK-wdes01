@@ -46,6 +46,13 @@ class TestSum:
         # one A and B and 1 E promotion, with B and E leftover
         assert checkout("AAABBEECDBE") == (130) + (45) + (40) + 20 + 15 + 30 + 40
 
+    def test_buy_one_get_b_free(self):
+        assert checkout("EE") == 80
+        assert checkout("EEB") == 80
+        assert checkout("EEEBB") == 80 + 30
+        assert checkout("EEEEBB") == 40 * 4
+
+
 
 
 

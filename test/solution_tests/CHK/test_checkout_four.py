@@ -47,9 +47,7 @@ class TestSum:
     def test_checkout_multiple_discount_items(self):
         # both promotions should be applied
         assert checkout("AAAAABAAA") == 200 + 130 + 30
-
         assert checkout("HHHHHHHHHHZHHHHHZHHHHHHHHHH") == 80 + 50 + 45 + 50 + 80
-
         assert checkout("VVZVVVZVVV") == 90 + 50 + 130 + 50 + 130
 
     def test_checkout_an_item_with_mutliple_special_offers(self):
@@ -70,10 +68,15 @@ class TestSum:
         assert checkout("EEEBB") == (40 * 3) + 30
         assert checkout("EEEEBB") == 40 * 4
 
+    def test_fake_buy_one_get_b_free(self):
         assert checkout("FF") == 20
         assert checkout("FFF") == 20
 
         assert checkout("FFFF") == 20 + 10
         assert checkout("FFFFFF") == 20 + 20
+
+        assert checkout("UUU") == (40 * 3)
+        assert checkout("UUUU") == (40 * 3)
+
 
 

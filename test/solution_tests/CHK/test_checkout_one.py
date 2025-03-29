@@ -17,4 +17,17 @@ class TestSum:
         assert checkout("ABCD") == 50 + 30 + 20 + 15
         assert checkout("BBB") == 30 * 3
 
+    def test_checkout_discount_items_only(self):
+        assert checkout("AAA") == 130
+        assert checkout("BB") == 45
+
+    # def test_checkout_multiple_discount_items(self):
+    #     assert checkout("AAA") == 130
+    #     assert checkout("BB") == 45
+    #
+    # def test_checkout_multiple_discount_items_with_remainder(self):
+    #     assert checkout("AAA") == 130
+    #     assert checkout("BB") == 45
+
+
 

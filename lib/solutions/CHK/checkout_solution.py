@@ -18,8 +18,11 @@ def checkout(skus):
 
     total = 0
     for item, count in cart.items():
+        # check if we apply any discounts
         total += prices[item] * count
+
     return total
+
 
 
 

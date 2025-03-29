@@ -6,7 +6,7 @@ from typing import DefaultDict
 
 
 prices = {"A": 50, "B": 30, "C": 20, "D": 15}
-specials = {"A": (3, 130), "B": (2, 25)}
+specials = {"A": (3, 130), "B": (2, 45)}
 
 
 def checkout(skus):
@@ -33,3 +33,4 @@ def checkout(skus):
             total += regular_price * count
 
     return total
+

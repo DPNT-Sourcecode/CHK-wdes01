@@ -38,7 +38,7 @@ prices = {"A": 50, "B": 30, "C": 20, "D": 15, "E": 40}
 specials = {"A": [(5, 200), (3, 130)], "B": [(2, 45)], "E": [(2, 40)]}
 
 
-def checkout_two(skus):
+def checkout(skus):
     cart = defaultdict(int)
     for sku in skus:
         if sku not in prices:
@@ -79,6 +79,7 @@ def checkout_two(skus):
             total += regular_price * count
 
     return total
+
 
 
 

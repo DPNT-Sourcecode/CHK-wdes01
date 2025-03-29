@@ -28,6 +28,3 @@ class TestSum:
     # def test_checkout_multiple_discount_items_with_remainder(self):
     #     assert checkout("AAA") == 130
     #     assert checkout("BB") == 45
-
-
-

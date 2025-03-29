@@ -6,7 +6,7 @@ from typing import DefaultDict
 
 
 prices = {"A": 50, "B": 30, "C": 20, "D": 15}
-specials = {"3A": 130, "2B": 25}
+specials = {"A": (3, 130), "B": (2, 25)}
 
 
 def checkout(skus):
@@ -19,9 +19,13 @@ def checkout(skus):
     total = 0
     for item, count in cart.items():
         # check if we apply any discounts
-        total += prices[item] * count
+        if item in specials:
+            (count, special_price) = specials[item]
+        else:
+            total += prices[item] * count
 
     return total
+
 
 
 

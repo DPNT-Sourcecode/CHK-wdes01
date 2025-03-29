@@ -47,3 +47,8 @@ class TestSum:
         assert checkout("EEEEBB") == 40 * 4
 
         assert checkout("FF") == 20
+        assert checkout("FFF") == 20
+
+        assert checkout("FFFF") == 20 + 10
+        assert checkout("FFFFFF") == 20 + 20
+

@@ -5,7 +5,7 @@ from collections import defaultdict
 
 
 prices = {"A": 50, "B": 30, "C": 20, "D": 15, "E": 40, "F": 10}
-specials = {"A": [(5, 200), (3, 130)], "B": [(2, 45)], "F": [(2, 10)]}
+specials = {"A": [(5, 200), (3, 130)], "B": [(2, 45)], "F": [(3, 20)]}
 bogo = {"E": 2}
 
 
@@ -58,5 +58,6 @@ def checkout(skus):
             total += regular_price * count
 
     return total
+
 
 

@@ -45,7 +45,8 @@ specials = {
     # really a bogo free deal
     "U": [(4, 120)],
 }
-bogo = {"E": (1, "B")}
+# key -> (number of items needed for discount, how much we discount of pair, pair_item)
+bogo = {"E": (2, 1, "B")}
 
 
 def checkout(skus):
@@ -60,9 +61,13 @@ def checkout(skus):
 
     for item, discount_pair in bogo.items():
         if item in cart:
+            # how many times do we see that item
             number_of_items = cart[item]
-            (special_count, discount_item) = bogo[item]
+            (special_count, discount_count, discount_item) = discount_pair
+
+            # how many times should we apply the special
             number_of_times = number_of_items // special_count
+
             cart[discount_item] = max(0, cart[discount_item] - number_of_times)
 
     for item, count in cart.items():
@@ -98,4 +103,5 @@ def checkout(skus):
             total += regular_price * count
 
     return total
+
 

@@ -35,22 +35,21 @@ prices = {
 specials = {
     "A": [(5, 200), (3, 130)],
     "B": [(2, 45)],
-    # really a bogo free deal "F": [(3, 20)],
+    # really a bogo free deal
+    "F": [(3, 20)],
     "H": [(10, 80), (5, 45)],
     "K": [(2, 150)],
     "P": [(5, 200)],
     "Q": [(3, 80)],
     "V": [(3, 130), (2, 90)],
-    # really a bogo free deal "U": [(4, 120)],
+    # really a bogo free deal
+    "U": [(4, 120)],
 }
-# key -> (number of items needed for discount, how much we discount of pair, pair_item)
-# it's always one free off item, means second element could be removed
+# key -> (number of items needed for discount, pair_item)
 bogo = {
-    "E": (2, 1, "B"),
-    "N": (3, 1, "M"),
-    "R": (3, 1, "Q"),
-    "F": (2, 1, "F"),
-    "U": (3, 1, "U"),
+    "E": (2, "B"),
+    "N": (3, "M"),
+    "R": (3, "Q"),
 }
 
 
@@ -64,18 +63,7 @@ def checkout(skus):
 
     total = 0
 
-    for item, discount_pair in bogo.items():
-        if item in cart:
-            # how many times do we see that item
-            number_of_items = cart[item]
-            (special_count, discount_count, discount_item) = discount_pair
-
-            # how many times should we apply the special
-            count_special_applies = number_of_items // special_count
-
-            number_of_times = count_special_applies * discount_count
-
-            cart[discount_item] = max(0, cart[discount_item] - number_of_times)
+    updated_cart = apply_buy_one_get_one_free(cart, bogo)
 
     for item, count in cart.items():
         # check if we apply any discounts
@@ -110,6 +98,21 @@ def checkout(skus):
             total += regular_price * count
 
     return total
+
+    def apply_buy_one_get_one_free(cart, bogo):
+        for item, discount_pair in bogo.items():
+            if item in cart:
+                # how many times do we see that item
+                number_of_items = cart[item]
+                (special_count, discount_item) = discount_pair
+
+                # how many times should we apply the special
+                count_special_applies = number_of_items // special_count
+
+                cart[discount_item] = max(
+                    0, cart[discount_item] - count_special_applies
+                )
+
 
 
 

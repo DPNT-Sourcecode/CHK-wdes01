@@ -51,6 +51,7 @@ def checkout_two(skus):
         regular_price = prices[item]
         if item in specials:
             specials_list = specials[item]
+            current_count = count
             for special_count, special_price in specials_list:
                 number_of_deals_on_item = count // special_count
                 remaining_items = count % special_count
@@ -63,3 +64,4 @@ def checkout_two(skus):
             total += regular_price * count
 
     return total
+

@@ -68,6 +68,9 @@ class TestSum:
         assert checkout("EEEBB") == (40 * 3) + 30
         assert checkout("EEEEBB") == 40 * 4
 
+        assert checkout("NNM") == (40 * 2) + 15
+        assert checkout("NNN") == (40 * 3)
+
     def test_fake_buy_one_get_b_free(self):
         assert checkout("FF") == 20
         assert checkout("FFF") == 20
@@ -77,3 +80,4 @@ class TestSum:
 
         assert checkout("UUU") == (40 * 3)
         assert checkout("UUUU") == (40 * 3)
+

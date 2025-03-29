@@ -46,7 +46,8 @@ specials = {
     "U": [(4, 120)],
 }
 # key -> (number of items needed for discount, how much we discount of pair, pair_item)
-bogo = {"E": (2, 1, "B")}
+# it's always one free off item, means second element could be removed
+bogo = {"E": (2, 1, "B"), "N": (3, 1, "M"), "R": (3, 1, "Q")}
 
 
 def checkout(skus):
@@ -66,7 +67,9 @@ def checkout(skus):
             (special_count, discount_count, discount_item) = discount_pair
 
             # how many times should we apply the special
-            number_of_times = number_of_items // special_count
+            count_special_applies = number_of_items // special_count
+
+            number_of_times = count_special_applies * discount_count
 
             cart[discount_item] = max(0, cart[discount_item] - number_of_times)
 
@@ -103,5 +106,6 @@ def checkout(skus):
             total += regular_price * count
 
     return total
+
 
 

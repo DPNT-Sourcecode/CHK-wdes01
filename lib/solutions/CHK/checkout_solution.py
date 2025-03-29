@@ -2,14 +2,13 @@
 # skus = unicode string
 
 from collections import defaultdict
-from typing import DefaultDict
 
 
 prices = {"A": 50, "B": 30, "C": 20, "D": 15}
 specials = {"A": (3, 130), "B": (2, 45)}
 
 
-def checkout(skus):
+def checkout_one(skus):
     cart = defaultdict(int)
     for sku in skus:
         if sku not in prices:
@@ -33,4 +32,5 @@ def checkout(skus):
             total += regular_price * count
 
     return total
+
 

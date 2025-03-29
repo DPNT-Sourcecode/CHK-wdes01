@@ -1,4 +1,4 @@
-from lib.solutions.CHK.checkout_solution import checkout
+from lib.solutions.CHK.checkout_one_two_solution import checkout
 
 
 class TestSum:
@@ -44,4 +44,5 @@ class TestSum:
         assert checkout("EEB") == 80
         assert checkout("EEEBB") == (40 * 3) + 30
         assert checkout("EEEEBB") == 40 * 4
+
 

@@ -18,7 +18,7 @@ class TestSum:
         assert checkout("H") == 10
         assert checkout("I") == 35
         assert checkout("J") == 60
-        assert checkout("K") == 80
+        assert checkout("K") == 70
         assert checkout("L") == 90
         assert checkout("M") == 15
         assert checkout("N") == 40
@@ -26,14 +26,14 @@ class TestSum:
         assert checkout("P") == 50
         assert checkout("Q") == 30
         assert checkout("R") == 50
-        assert checkout("S") == 30
+        assert checkout("S") == 20
         assert checkout("T") == 20
         assert checkout("U") == 40
         assert checkout("V") == 50
         assert checkout("W") == 20
-        assert checkout("X") == 90
-        assert checkout("Y") == 10
-        assert checkout("Z") == 50
+        assert checkout("X") == 17
+        assert checkout("Y") == 20
+        assert checkout("Z") == 21
 
     def test_checkout_multiple_non_discount_items(self):
         assert checkout("ABCDE") == 50 + 30 + 20 + 15 + 40
@@ -47,8 +47,8 @@ class TestSum:
     def test_checkout_multiple_discount_items(self):
         # both promotions should be applied
         assert checkout("AAAAABAAA") == 200 + 130 + 30
-        assert checkout("HHHHHHHHHHZHHHHHZHHHHHHHHHH") == 80 + 50 + 45 + 50 + 80
-        assert checkout("VVZVVVZVVV") == 90 + 50 + 130 + 50 + 130
+        assert checkout("HHHHHHHHHHZHHHHHZHHHHHHHHHH") == 80 + 21 + 45 + 21 + 80
+        assert checkout("VVZVVVZVVV") == 90 + 21 + 130 + 21 + 130
 
     def test_checkout_an_item_with_mutliple_special_offers(self):
         assert checkout("BBBBBB") == 45 * 3
@@ -86,3 +86,8 @@ class TestSum:
 
         assert checkout("UUU") == (40 * 3)
         assert checkout("UUUU") == (40 * 3)
+
+    def test_group_discount(self):
+        assert checkout("SS") == 40
+        assert checkout("SSS") == 44
+

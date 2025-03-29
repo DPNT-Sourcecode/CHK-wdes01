@@ -54,14 +54,19 @@ def checkout_two(skus):
             current_count = count
             for special_count, special_price in specials_list:
                 number_of_deals_on_item = count // special_count
-                remaining_items = count % special_count
-
                 special_cost = special_price * number_of_deals_on_item
-                regular_cost = remaining_items * regular_price
 
-                total += special_cost + regular_cost
+                total += special_cost
+                current_count -= number_of_deals_on_item
+
+            # after we applied all promotions, see if we do anything at regular cost
+            # in the case there is non left, we are adding 0
+            regular_cost = current_count * regular_price
+            total += regular_cost
+
         else:
             total += regular_price * count
 
     return total
+
 

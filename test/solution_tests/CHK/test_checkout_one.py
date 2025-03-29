@@ -33,7 +33,11 @@ class TestSum:
         assert checkout("AABBCD") == (50 * 2) + 45 + 20 + 15
 
         # one A and B promotion
-        assert checkout("AAABBCD") == (50 * 2) + 45 + 20 + 15
+        assert checkout("AAABBCD") == (130) + (45) + 20 + 15
+        assert checkout("AAABBCDAAA") == (2 * 130) + (45) + 20 + 15
+        #
         # one A promotion, one b promotion 2 a's left over
-        assert checkout("AAABBCDAA") == (50 * 2) + 45 + 20 + 15
+        assert checkout("AAABBCDAA") == (130) + (45) + 20 + 15 + (50 * 2)
+        assert checkout("AAABBCDAAB") == (130) + (45) + 20 + 15 + (50 * 2) + (30)
+
 

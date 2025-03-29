@@ -42,5 +42,6 @@ class TestSum:
     def test_buy_one_get_b_free(self):
         assert checkout("EE") == 80
         assert checkout("EEB") == 80
-        assert checkout("EEEBB") == 80 + 30
+        assert checkout("EEEBB") == (40 * 3) + 30
         assert checkout("EEEEBB") == 40 * 4
+

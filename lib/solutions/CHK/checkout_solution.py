@@ -50,18 +50,20 @@ def checkout_two(skus):
         # check if we apply any discounts
         regular_price = prices[item]
         if item in specials:
-            (special_count, special_price) = specials[item]
-            number_of_deals_on_item = count // special_count
-            remaining_items = count % special_count
+            specials_list = specials[item]
+            for special_count, special_price in specials_list:
+                number_of_deals_on_item = count // special_count
+                remaining_items = count % special_count
 
-            special_cost = special_price * number_of_deals_on_item
-            regular_cost = remaining_items * regular_price
+                special_cost = special_price * number_of_deals_on_item
+                regular_cost = remaining_items * regular_price
 
-            total += special_cost + regular_cost
+                total += special_cost + regular_cost
         else:
             total += regular_price * count
 
     return total
+
 
 
 

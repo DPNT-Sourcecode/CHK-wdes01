@@ -98,8 +98,3 @@ class TestSum:
         assert checkout("ZZZS") == 45 + 20
         assert checkout("STXS") == 62
         assert checkout("STXZ") == 62
-
-
-
-
-

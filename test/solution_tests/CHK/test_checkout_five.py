@@ -89,5 +89,6 @@ class TestSum:
 
     def test_group_discount(self):
         assert checkout("SS") == 40
-        assert checkout("SSS") == 44
+        assert checkout("SSS") == 45
+
 

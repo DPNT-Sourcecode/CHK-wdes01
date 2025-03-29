@@ -77,6 +77,3 @@ class TestSum:
 
         assert checkout("UUU") == (40 * 3)
         assert checkout("UUUU") == (40 * 3)
-
-
-

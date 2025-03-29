@@ -35,19 +35,23 @@ prices = {
 specials = {
     "A": [(5, 200), (3, 130)],
     "B": [(2, 45)],
-    # really a bogo free deal
-    "F": [(3, 20)],
+    # really a bogo free deal "F": [(3, 20)],
     "H": [(10, 80), (5, 45)],
     "K": [(2, 150)],
     "P": [(5, 200)],
     "Q": [(3, 80)],
     "V": [(3, 130), (2, 90)],
-    # really a bogo free deal
-    "U": [(4, 120)],
+    # really a bogo free deal "U": [(4, 120)],
 }
 # key -> (number of items needed for discount, how much we discount of pair, pair_item)
 # it's always one free off item, means second element could be removed
-bogo = {"E": (2, 1, "B"), "N": (3, 1, "M"), "R": (3, 1, "Q")}
+bogo = {
+    "E": (2, 1, "B"),
+    "N": (3, 1, "M"),
+    "R": (3, 1, "Q"),
+    "F": (2, 1, "F"),
+    "U": (3, 1, "U"),
+}
 
 
 def checkout(skus):
@@ -106,6 +110,7 @@ def checkout(skus):
             total += regular_price * count
 
     return total
+
 
 
 

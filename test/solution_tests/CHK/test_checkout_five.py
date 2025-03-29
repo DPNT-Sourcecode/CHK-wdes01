@@ -94,6 +94,12 @@ class TestSum:
 
         assert checkout("SSTXYZ") == 45 + 45
 
+        # we should favor decrementing the most expensive ones first
+        assert checkout("ZZZS") == 45 + 20
+        assert checkout("STXS") == 62
+        assert checkout("STXZ") == 62
+
+
 
 
 

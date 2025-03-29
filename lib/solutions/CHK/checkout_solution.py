@@ -70,7 +70,7 @@ def checkout(skus):
 
             cart[discount_item] = max(0, cart[discount_item] - number_of_times)
 
-    group_discount_items = ["S", "T", "X", "Y", "Z"]
+    group_discount_items = ["Z", "S", "T", "Y", "X"]
     count_group_discount = sum(cart[item] for item in group_discount_items)
     number_of_times = count_group_discount // 3
     if count_group_discount >= 3:
@@ -108,6 +108,7 @@ def checkout(skus):
             total += regular_price * count
 
     return total
+
 
 
 

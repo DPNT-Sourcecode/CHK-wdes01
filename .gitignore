@@ -42,11 +42,11 @@ coverage.xml
 *.iml
 
 # ~~~~~~~~~ Accelerate ~~~~~~~~~
-challenges/
 config/
 coverage/
 coverage.tdl
 .coverage
 jre/
 record/
+
 

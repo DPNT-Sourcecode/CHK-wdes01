@@ -2,6 +2,7 @@
 # skus = unicode string
 
 from collections import defaultdict
+from typing import Dict, Tuple
 
 
 prices = {
@@ -63,7 +64,7 @@ def checkout(skus):
 
     total = 0
 
-    updated_cart = apply_buy_one_get_one_free(cart, bogo)
+    apply_buy_one_get_one_free(cart, bogo)
 
     for item, count in cart.items():
         # check if we apply any discounts
@@ -99,19 +100,19 @@ def checkout(skus):
 
     return total
 
-    def apply_buy_one_get_one_free(cart, bogo):
-        for item, discount_pair in bogo.items():
-            if item in cart:
-                # how many times do we see that item
-                number_of_items = cart[item]
-                (special_count, discount_item) = discount_pair
 
-                # how many times should we apply the special
-                count_special_applies = number_of_items // special_count
+def apply_buy_one_get_one_free(cart: Dict[str, int], bogo: Dict[str, Tuple[int, str]]):
+    for item, discount_pair in bogo.items():
+        if item in cart:
+            # how many times do we see that item
+            number_of_items = cart[item]
+            (special_count, discount_item) = discount_pair
 
-                cart[discount_item] = max(
-                    0, cart[discount_item] - count_special_applies
-                )
+            # how many times should we apply the special
+            count_special_applies = number_of_items // special_count
+
+            cart[discount_item] = max(0, cart[discount_item] - count_special_applies)
+
 
 
 

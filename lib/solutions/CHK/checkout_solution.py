@@ -63,7 +63,3 @@ def checkout_two(skus):
             total += regular_price * count
 
     return total
-
-
-
-

@@ -35,18 +35,22 @@ def checkout_one(skus):
 
 
 prices = {"A": 50, "B": 30, "C": 20, "D": 15, "E": 40}
-specials = {"A": [(5, 200), (3, 130)], "B": [(2, 45)], "E": [(2, 40)]}
-specials = {"E": [(1, "B")]}
+specials = {"A": [(5, 200), (3, 130)], "B": [(2, 45)]}
+bogo = {"E": 2}
 
 
 def checkout(skus):
     cart = defaultdict(int)
+
     for sku in skus:
         if sku not in prices:
             return -1
+
+    for sku in skus:
         cart[sku] += 1
 
     total = 0
+
     for item, count in cart.items():
         # check if we apply any discounts
         regular_price = prices[item]
@@ -80,12 +84,3 @@ def checkout(skus):
             total += regular_price * count
 
     return total
-
-
-
-
-
-
-
-
-

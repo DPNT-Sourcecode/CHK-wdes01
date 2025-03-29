@@ -76,18 +76,12 @@ def checkout(skus):
     if count_group_discount >= 3:
         total += number_of_times * 45
 
-    print(f"{total=}")
-    while number_of_times > 0:
+    decrement_count = number_of_times * 3
+    while decrement_count > 0:
         for item in group_discount_items:
-            print(
-                f"looking at {item} in group discount. It has a count of {cart[item]}"
-            )
             if cart[item] > 0:
-                cart[item] -= 3
-                number_of_times -= 1
-
-            print(f"cart is now updated to {cart[item]}")
-            print(f"number_of_times is now updated to {number_of_times}")
+                cart[item] -= 1
+                decrement_count -= 1
 
     for item, count in cart.items():
         # check if we apply any discounts
@@ -101,19 +95,11 @@ def checkout(skus):
                     # after we applied all promotions, see if we do anything at regular cost
                     # in the case there is non left, we are adding 0
                 else:
-                    print(f"({current_count=} {special_count=}, {special_price=})")
                     number_of_deals_on_item = current_count // special_count
                     special_cost = special_price * number_of_deals_on_item
 
-                    print(
-                        f"({number_of_deals_on_item=}, at current rate of {special_price=} will cost us {special_cost=}"
-                    )
                     total += special_cost
-                    print(
-                        f"current count currently is {current_count} and special count is {special_count}"
-                    )
                     current_count -= special_count * number_of_deals_on_item
-                    print(f"current count is now {current_count}")
 
             regular_cost = current_count * regular_price
             total += regular_cost
@@ -122,6 +108,7 @@ def checkout(skus):
             total += regular_price * count
 
     return total
+
 
 
 

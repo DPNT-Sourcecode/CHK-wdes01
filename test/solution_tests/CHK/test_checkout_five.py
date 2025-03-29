@@ -91,7 +91,9 @@ class TestSum:
         assert checkout("SS") == 40
         assert checkout("SSS") == 45
         assert checkout("XY") == 17 + 20
-        assert checkout("XYZ") == 45
+
+        assert checkout("SSTXYZ") == 45 + 45
+
 
 
 

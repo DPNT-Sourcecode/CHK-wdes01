@@ -39,4 +39,3 @@ class TestSum:
         # one A promotion, one b promotion 2 a's left over
         assert checkout_one("AAABBCDAA") == (130) + (45) + 20 + 15 + (50 * 2)
         assert checkout_one("AAABBCDAAB") == (130) + (45) + 20 + 15 + (50 * 2) + (30)
-

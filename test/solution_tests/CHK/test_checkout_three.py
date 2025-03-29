@@ -51,5 +51,3 @@ class TestSum:
 
         assert checkout("FFFF") == 20 + 10
         assert checkout("FFFFFF") == 20 + 20
-
-

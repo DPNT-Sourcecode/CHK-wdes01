@@ -37,6 +37,9 @@ specials = {
     "B": [(2, 45)],
     "F": [(3, 20)],
     "H": [(10, 80), (5, 45)],
+    "K": [(2, 150)],
+    "P": [(5, 200)],
+    "Q": [(3, 80)],
 }
 bogo = {"E": 2}
 
@@ -90,7 +93,3 @@ def checkout(skus):
             total += regular_price * count
 
     return total
-
-
-
-

@@ -53,11 +53,16 @@ def checkout_two(skus):
             specials_list = specials[item]
             current_count = count
             for special_count, special_price in specials_list:
+                print(f"({special_count=}, {special_price=})")
                 number_of_deals_on_item = count // special_count
                 special_cost = special_price * number_of_deals_on_item
 
+                print(
+                    f"({number_of_deals_on_item=}, at current rate of {special_price=} will cost us {special_cost=}"
+                )
                 total += special_cost
                 current_count -= number_of_deals_on_item
+                print(f"current count is now {current_count}")
 
             # after we applied all promotions, see if we do anything at regular cost
             # in the case there is non left, we are adding 0
@@ -68,5 +73,6 @@ def checkout_two(skus):
             total += regular_price * count
 
     return total
+
 
 

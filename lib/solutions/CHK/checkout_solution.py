@@ -78,12 +78,9 @@ def checkout(skus):
 
     decrement_count = number_of_times * 3
     current_index = 0
-    while decrement_count > 1:
+    while decrement_count > 0:
         current_item = group_discount_items[current_index]
-        print(f"{current_index} and {current_item=} and {decrement_count=}")
         if cart[current_item] == 0:
-            print(f"found an item that is 0 {cart[current_item]=}")
-            print(f"{cart}")
             current_index += 1
 
         else:
@@ -115,5 +112,6 @@ def checkout(skus):
             total += regular_price * count
 
     return total
+
 
 

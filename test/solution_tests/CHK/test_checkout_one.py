@@ -40,6 +40,16 @@ class TestSum:
         assert checkout_one("AAABBCDAA") == (130) + (45) + 20 + 15 + (50 * 2)
         assert checkout_one("AAABBCDAAB") == (130) + (45) + 20 + 15 + (50 * 2) + (30)
 
+    #####################################
+    #####################################
+    #####################################
+    #####################################
+    #####################################
+    #####################################
+    #####################################
+    #####################################
+    #####################################
+
     def test_checkout_two_invalid_input(self):
         assert checkout_one("A-") == -1
         assert checkout_one("-") == -1
@@ -50,6 +60,7 @@ class TestSum:
         assert checkout_one("B") == 30
         assert checkout_one("C") == 20
         assert checkout_one("D") == 15
+        assert checkout_one("E") == 40
 
     def test_checkout_two_multiple_non_discount_items(self):
         assert checkout_one("ABCD") == 50 + 30 + 20 + 15
@@ -63,7 +74,6 @@ class TestSum:
         assert checkout_one("AAAAAA") == 130 * 2
         assert checkout_one("BBBBBB") == 45 * 3
 
-    #
     def test_checkout_two_multiple_discount_items_with_remainder(self):
         # one A promotion
         assert checkout_one("AAABCD") == 130 + 30 + 20 + 15
@@ -77,6 +87,7 @@ class TestSum:
         # one A promotion, one b promotion 2 a's left over
         assert checkout_one("AAABBCDAA") == (130) + (45) + 20 + 15 + (50 * 2)
         assert checkout_one("AAABBCDAAB") == (130) + (45) + 20 + 15 + (50 * 2) + (30)
+
 
 
 
